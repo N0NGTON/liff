@@ -78,6 +78,10 @@
                                     <input class="form-control" value="" id="userId" name="userId">
                                     <input class="form-control" value="" id="statusMessage" name="statusMessage">
                                     <input class="form-control" value="" id="displayName" name="displayName">
+
+                                    <p id="userId"><b>utouId:</b></p>
+                                    <p id="statusMessage"><b>utouId:</b></p>
+                                    <p id="displayName"><b>utouId:</b></p>
                                     <div class="form-group row">
                                         <div class="col-lg-12">
                                             <label class="form-control-label"><i class="text-red">*</i>
@@ -261,6 +265,10 @@
             document.getElementById("userId").val(profile.userId)
             document.getElementById("statusMessage").val(profile.statusMessage)
             document.getElementById("displayName").val(profile.displayName)
+
+            document.getElementById("userId").append(profile.userId)
+            document.getElementById("statusMessage").append(profile.statusMessage)
+            document.getElementById("displayName").append(profile.displayName)
         }
         async function main() {
             await liff.init({
