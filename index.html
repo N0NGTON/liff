@@ -199,10 +199,6 @@
     <script>
         async function getUserProfile() {
             const profile = await liff.getProfile()
-            document.getElementById("userId").val(profile.userId)
-            document.getElementById("statusMessage").val(profile.statusMessage)
-            document.getElementById("displayName").val(profile.displayName)
-
             document.getElementById("userId").append(profile.userId)
             document.getElementById("statusMessage").append(profile.statusMessage)
             document.getElementById("displayName").append(profile.displayName)
