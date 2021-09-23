@@ -54,10 +54,18 @@ var KTRegister = function () {
             if (!form.valid()) {
                 return;
             }
-
+            let lineProfile = {
+                userId: profile.userId,
+                displayName: profile.displayName,
+                statusMessage: profile.statusMessage,
+            }
             form.ajaxSubmit({
+
                 url: 'http://nesting-home.2bjobproject.com/api/v1/caregiver/register',
                 method: "POST",
+                data: {
+                    lineProfile: lineProfile,
+                },
                 success: function (response, status, xhr, $form) {
                     btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
                     if (response.status == true) {
