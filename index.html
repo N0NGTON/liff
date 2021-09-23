@@ -191,14 +191,36 @@
             </div>
         </div>
     </div>
-    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script src="assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>
     <script src="assets/js/scripts.bundle.js" type="text/javascript"></script>
     <script src="assets/js/jquery.datetimepicker.js" type="text/javascript"></script>
     <script src="assets/js/register.js" type="text/javascript"></script>
 
 
+    <script>
+        async function getUserProfile() {
+            const profile = await liff.getProfile()
+            document.getElementById("userId").val(profile.userId)
+            document.getElementById("statusMessage").val(profile.statusMessage)
+            document.getElementById("displayName").val(profile.displayName)
 
+            document.getElementById("userId").append(profile.userId)
+            document.getElementById("statusMessage").append(profile.statusMessage)
+            document.getElementById("displayName").append(profile.displayName)
+        }
+        async function main() {
+            await liff.init({
+                liffId: "1656443943-j6NADdba"
+            })
+            // getEnvironment()
+            getUserProfile()
+            // getContext()
+            // getFriendship()
+            // createUniversalLink()
+        }
+        main()
+    </script>
     <script>
         var KTAppOptions = {
             "colors": {
@@ -276,28 +298,6 @@
             yearOffset: 543, // ใช้ปี พ.ศ. บวก 543 เพิ่มเข้าไปในปี ค.ศ
             closeOnDateSelect: true,
         });
-
-        async function getUserProfile() {
-            const profile = await liff.getProfile()
-            document.getElementById("userId").val(profile.userId)
-            document.getElementById("statusMessage").val(profile.statusMessage)
-            document.getElementById("displayName").val(profile.displayName)
-
-            document.getElementById("userId").append(profile.userId)
-            document.getElementById("statusMessage").append(profile.statusMessage)
-            document.getElementById("displayName").append(profile.displayName)
-        }
-        async function main() {
-            await liff.init({
-                liffId: "1656443943-j6NADdba"
-            })
-            // getEnvironment()
-            getUserProfile()
-            // getContext()
-            // getFriendship()
-            // createUniversalLink()
-        }
-        main()
     </script>
 
 </body>
