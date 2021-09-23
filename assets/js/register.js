@@ -56,7 +56,7 @@ var KTRegister = function () {
             }
 
             form.ajaxSubmit({
-                url: 'api/v1/customer/register',
+                url: 'http://nesting-home.2bjobproject.com/api/v1/customer/register',
                 method: "POST",
                 success: function (response, status, xhr, $form) {
                     btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
